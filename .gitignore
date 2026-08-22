@@ -73,6 +73,9 @@ web_modules/
 # Cloudflare Pages local secrets
 .dev.vars
 
+# Cloudflare Wrangler (Workers) cache
+.wrangler
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
