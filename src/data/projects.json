@@ -1,0 +1,55 @@
+[
+  {
+    "eyebrow": "Geospatial Risk Platform",
+    "title": "Resilience Explorer",
+    "description": "Most risk assessments suck: outdated within a year and buried in a report nobody reads. Resilience Explorer calculates the actual chain reaction, a substation floods, power drops, water and wastewater fail, roads close, people are cut off from supermarkets. And then prices it: damage costs, economic loss, who gets hit hardest.",
+    "logo": "rexLogo",
+    "color": "#deefd6",
+    "buttons": [{ "style": "cta", "text": "Learn more", "url": "https://resilience-explorer.com/" }],
+    "visual": { "src": "resilienceExplorer", "alt": "Resilience Explorer app", "fit": "contain" }
+  },
+  {
+    "eyebrow": "Mobility & Equity Mapping",
+    "title": "Access Explorer",
+    "description": "Ever seen a house listing claim \"10 minutes to everything\"? Access Explorer cuts the crap. Type in any address and see exactly how long it actually takes to reach a range of amenities (supermarket, GP, schools, or pharmacy) by any means (walking, biking, driving, bus).",
+    "logo": "accessExplorerLogo",
+    "color": "#faedcd",
+    "buttons": [{ "style": "cta", "text": "Visit app", "url": "https://access.resilience-explorer.com/" }],
+    "visual": { "src": "accessExplorer", "alt": "Access Explorer accessibility map", "fit": "contain" }
+  },
+  {
+    "eyebrow": "Public Transport Planning",
+    "title": "🚌 Haere",
+    "description": "Councils like to add, remove and change transit lines and frequencies to save money. What you actually want to know is \"will this wreck my commute?\". Type in your address and the places you need to reach, and it shows your travel time before and after the proposed change.",
+    "color": "#cfe8f9",
+    "buttons": [{ "style": "cta", "text": "Visit app", "url": "https://haere.samarchie.dev" }],
+    "visual": { "src": "haere", "alt": "Haere landing page", "fit": "contain" }
+  },
+  {
+    "eyebrow": "GPU-rendered notebooks of large datasets",
+    "title": "Lonboard",
+    "description": "Python is too slow to render large datasets, and that's if it doesn't crash. Lonboard pushes rendering straight to your GPU via WebGL, reducing time-to-paint from minutes down to 2.5 seconds. I presented four demo notebooks for FOSS4G Auckland 2025, from 25 years of crash data to flight tracking animations.",
+    "logo": "lonboardLogo",
+    "color": "#e7dfeb",
+    "buttons": [{ "style": "cta", "text": "Visit codebase", "url": "https://github.com/samarchie/foss4g-auckland-2025-lonboard" }],
+    "visual": { "src": "lonboard", "alt": "Animation of planes", "fit": "contain" }
+  },
+  {
+    "eyebrow": "Data Scraping",
+    "title": "Covy",
+    "description": "Watching the news during Covid-19 was dreadful and terrifying. I built Covy to message me where there were confirmed cases at my University (where I was studying at the time) and in my city, in real-time as information was released by officials.",
+    "color": "#f9cfcf",
+    "logo": "covyLogo",
+    "buttons": [{ "style": "cta", "text": "Visit codebase", "url": "https://github.com/samarchie/covy" }],
+    "visual": { "src": "covy", "alt": "Location update notifications", "fit": "contain" }
+  },
+  {
+    "eyebrow": "Urban Planning Optimisation",
+    "title": "Where should we relocate?",
+    "description": "Councils solving climate retreat usually optimise for one thing: get people out of the flood zone. But people relocate to sprawling areas, expensive land or into a different hazard zone. My thesis built two optimisation algorithms which helped Councils understand the tradeoffs between potential relocations sites.",
+    "logo": "ucLogo",
+    "color": "#e9edc9",
+    "buttons": [{ "style": "cta", "text": "Read my thesis", "url": "http://dx.doi.org/10.26021/14341" }],
+    "visual": { "src": "optimalSpatialPlans", "alt": "Isometric city model", "fit": "contain" }
+  }
+]
