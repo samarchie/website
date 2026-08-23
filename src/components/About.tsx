@@ -13,7 +13,7 @@ export function About() {
       />
       <div className="space-y-4">
         <h1 className="text-4xl font-medium tracking-tight text-neutral-900 sm:text-6xl">
-          Sam Archie.
+          Kia ora, I'm Sam Archie.
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-neutral-500">
           I build software that helps people make smarter decisions and save time.
@@ -38,7 +38,7 @@ export function About() {
       </div>
       <div className="space-y-6 pt-8 text-left text-xl leading-relaxed text-neutral-700 sm:text-2xl">
         <p>
-          Kia ora, I'm Sam, and I like building things to make life easier. I'm a backend software engineer with expertise in data, Python and APIs. I like working on problems where large-scale data analysis needs to turn into clean, scalable code.
+          Hi, I'm Sam, and I like building things to make life easier. I'm a backend software engineer with expertise in data, Python and APIs. I like working on problems where large-scale data analysis needs to turn into clean, scalable code.
         </p>
         <p>
           Currently, I'm a Software Engineer at <a href="https://resilience-explorer.com/urban-intelligence/team" target="_blank" rel="noopener noreferrer">Urban Intelligence</a>, where I work on our internal platforms and our external products, like <a href="https://resilience-explorer.com" target="_blank" rel="noopener noreferrer">Resilience Explorer</a>. I lead technical design across our engineering platform, from the plugin architecture that lets us extend our data pipelines without touching core code, to the testing and code-quality standards the team now works to.

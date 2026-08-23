@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav";
 import { About } from "@/components/About";
 import { ProjectStack } from "@/components/ProjectStack";
 import { Experience } from "@/components/Experience";
+import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <About />
         <ProjectStack />
         <Experience />
+        <Education />
         <Contact />
       </div>
     </ReactLenis>
