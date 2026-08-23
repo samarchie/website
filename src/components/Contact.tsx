@@ -23,6 +23,14 @@ const inputClasses =
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEY0rK_BSslvZUzv";
+
+declare global {
+  interface Window {
+    turnstile?: { reset: () => void };
+  }
+}
+
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
 
@@ -41,6 +49,8 @@ export function Contact() {
       form.reset();
     } catch {
       setStatus("error");
+    } finally {
+      window.turnstile?.reset();
     }
   }
 
@@ -63,9 +73,8 @@ export function Contact() {
           className="flex w-full max-w-md flex-col gap-3 text-left"
         >
           {/* honeypot: bots fill hidden fields, humans never see this */}
-          <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_subject" value="New message from website contact form" />
+          <input type="text" name="honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
+          <input type="hidden" name="subject" value="New message from website contact form" />
           <input
             type="text"
             name="name"
@@ -86,6 +95,7 @@ export function Contact() {
             rows={4}
             className={inputClasses}
           />
+          <div className="cf-turnstile self-center" data-sitekey={TURNSTILE_SITE_KEY} />
           <Button
             type="submit"
             size="lg"

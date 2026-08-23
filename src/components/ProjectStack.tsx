@@ -149,10 +149,7 @@ function ProjectCard({
       >
         <div
           className="absolute inset-0 rounded-[3.5rem]"
-          style={{
-            backgroundColor: project.color,
-            filter: "url(#ProjectSquircleFilter)",
-          }}
+          style={{ backgroundColor: project.color }}
         />
         <ProjectCardContent project={project} />
         <ProjectVisual

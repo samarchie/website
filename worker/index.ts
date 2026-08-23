@@ -1,6 +1,8 @@
+const ALLOWED_ORIGIN = "https://samarchie.dev";
+
 export interface Env {
   ASSETS: Fetcher;
-  FORMSUBMIT_HASH: string;
+  STATICFORMS_API_KEY: string;
 }
 
 export default {
@@ -16,16 +18,23 @@ export default {
 } satisfies ExportedHandler<Env>;
 
 async function handleContact(request: Request, env: Env): Promise<Response> {
+  const origin = request.headers.get("Origin");
+  if (origin !== ALLOWED_ORIGIN && !origin?.startsWith("http://localhost:")) {
+    return new Response(JSON.stringify({ success: false, message: "Forbidden" }), {
+      status: 403,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
   const formData = await request.formData();
 
-  const response = await fetch(
-    `https://formsubmit.co/ajax/${env.FORMSUBMIT_HASH}`,
-    {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: formData,
-    },
-  );
+  formData.set("apiKey", env.STATICFORMS_API_KEY);
+
+  const response = await fetch("https://api.staticforms.dev/submit", {
+    method: "POST",
+    headers: { Accept: "application/json", Origin: new URL(request.url).origin },
+    body: formData,
+  });
 
   return new Response(await response.text(), {
     status: response.status,
