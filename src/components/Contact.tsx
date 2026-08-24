@@ -1,4 +1,4 @@
-import { useState, type SyntheticEvent } from "react";
+import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -27,12 +27,37 @@ const TURNSTILE_SITE_KEY = "0x4AAAAAAEY0rK_BSslvZUzv";
 
 declare global {
   interface Window {
-    turnstile?: { reset: () => void };
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: { sitekey: string; action?: string },
+      ) => string;
+      reset: (widgetId?: string) => void;
+      remove: (widgetId: string) => void;
+    };
+    __turnstileReady?: Promise<void>;
   }
 }
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = useRef<string | undefined>(undefined);
+
+  useEffect(() => {
+    let cancelled = false;
+    window.__turnstileReady?.then(() => {
+      if (cancelled || !turnstileContainerRef.current) return;
+      turnstileWidgetIdRef.current = window.turnstile!.render(turnstileContainerRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        action: "contact",
+      });
+    });
+    return () => {
+      cancelled = true;
+      if (turnstileWidgetIdRef.current) window.turnstile?.remove(turnstileWidgetIdRef.current);
+    };
+  }, []);
 
   async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -50,7 +75,7 @@ export function Contact() {
     } catch {
       setStatus("error");
     } finally {
-      window.turnstile?.reset();
+      if (turnstileWidgetIdRef.current) window.turnstile?.reset(turnstileWidgetIdRef.current);
     }
   }
 
@@ -95,11 +120,7 @@ export function Contact() {
             rows={4}
             className={inputClasses}
           />
-          <div
-            className="cf-turnstile self-center"
-            data-sitekey={TURNSTILE_SITE_KEY}
-            data-action="contact"
-          />
+          <div ref={turnstileContainerRef} className="self-center" />
           <Button
             type="submit"
             size="lg"

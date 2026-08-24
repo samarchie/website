@@ -36,7 +36,16 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+      window.__turnstileReady = new Promise((resolve) => {
+        window.__onTurnstileLoad = resolve;
+      });
+    </script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__onTurnstileLoad&render=explicit"
+      async
+      defer
+    ></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
