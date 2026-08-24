@@ -95,7 +95,11 @@ export function Contact() {
             rows={4}
             className={inputClasses}
           />
-          <div className="cf-turnstile self-center" data-sitekey={TURNSTILE_SITE_KEY} />
+          <div
+            className="cf-turnstile self-center"
+            data-sitekey={TURNSTILE_SITE_KEY}
+            data-action="contact"
+          />
           <Button
             type="submit"
             size="lg"
