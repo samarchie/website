@@ -62,6 +62,7 @@ function ProjectCardContent({ project }: { project: Project }) {
             <img
               src={project.logo}
               alt=""
+              loading="lazy"
               className="h-9 w-auto max-w-[200px] object-contain object-left"
             />
           )}
@@ -109,13 +110,14 @@ function ProjectVisual({ project, className }: { project: Project; className: st
         <img
           src={project.visual.src}
           alt={project.visual.alt}
+          loading="lazy"
           className={`h-full max-h-full w-full ${
             project.visual.fit === "cover" ? "object-cover" : "object-contain"
           }`}
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center rounded-2xl bg-black/5">
-          <img src={project.logo} alt="" className="h-20 w-auto opacity-40" />
+          <img src={project.logo} alt="" loading="lazy" className="h-20 w-auto opacity-40" />
         </div>
       )}
     </div>

@@ -18,7 +18,8 @@ export function Experience() {
         <div className="flex items-center gap-3">
           <img
             src="/urban_intelligence_logo.webp"
-            alt=""
+            alt="Urban Intelligence logo"
+            loading="lazy"
             className="h-11 w-auto max-w-[200px] object-contain object-left"
           />
           <div className="space-y-1">

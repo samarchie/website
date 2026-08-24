@@ -8,7 +8,7 @@ export function About() {
     <section id="about" className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 pb-20 pt-28 text-center sm:pt-36">
       <img
         src="/hero.webp"
-        alt=""
+        alt="Sam Archie"
         className="h-90 aspect-[5/4] rounded-[3.5rem] object-cover sm:h-160"
       />
       <div className="space-y-4">

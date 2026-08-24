@@ -87,6 +87,7 @@ export function Contact() {
       <img
         src="/contact.webp"
         alt="Sam Archie"
+        loading="lazy"
         className="size-120 rounded-[3.5rem] object-cover"
       />
       <h2 className="text-3xl font-medium tracking-tight text-neutral-900 sm:text-4xl">

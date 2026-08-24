@@ -32,7 +32,8 @@ export function Education() {
           <div className="flex items-center gap-3">
             <img
               src="/university_of_canterbury_logo.webp"
-              alt=""
+              alt="University of Canterbury logo"
+              loading="lazy"
               className="h-11 w-auto max-w-[200px] object-contain object-left"
             />
             <div className="space-y-1">
