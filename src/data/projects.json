@@ -18,14 +18,6 @@
     "visual": { "src": "accessExplorer", "alt": "Access Explorer accessibility map", "fit": "contain" }
   },
   {
-    "eyebrow": "Public Transport Planning",
-    "title": "🚌 Haere",
-    "description": "Councils like to add, remove and change transit lines and frequencies to save money. What you actually want to know is \"will this wreck my commute?\". Type in your address and the places you need to reach, and it shows your travel time before and after the proposed change.",
-    "color": "#cfe8f9",
-    "buttons": [{ "style": "cta", "text": "Visit app", "url": "https://haere.samarchie.dev" }],
-    "visual": { "src": "haere", "alt": "Haere landing page", "fit": "contain" }
-  },
-  {
     "eyebrow": "GPU-rendered notebooks of large datasets",
     "title": "Lonboard",
     "description": "Python is too slow to render large datasets, and that's if it doesn't crash. Lonboard pushes rendering straight to your GPU via WebGL, reducing time-to-paint from minutes down to 2.5 seconds. I presented four demo notebooks for FOSS4G Auckland 2025, from 25 years of crash data to flight tracking animations.",
