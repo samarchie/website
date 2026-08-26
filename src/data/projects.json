@@ -47,6 +47,11 @@
         "style": "cta",
         "text": "Visit app",
         "url": "https://haere.samarchie.dev"
+      },
+      {
+        "style": "secondary",
+        "text": "Visit codebase",
+        "url": "https://github.com/samarchie/haere"
       }
     ],
     "visual": {

@@ -88,7 +88,7 @@ function ProjectCardContent({ project }: { project: Project }) {
               className={
                 button.style === "cta"
                   ? "h-auto px-6 py-3"
-                  : "h-auto border-[#214d65]/30 px-6 py-3 text-primary hover:border-[#214d65]/60 hover:bg-background hover:text-primary"
+                  : "h-auto border-[#214d65]/30 bg-transparent px-6 py-3 text-primary hover:border-[#214d65]/60 hover:bg-black/5 hover:text-primary"
               }
             >
               <a href={button.url} target="_blank" rel="noopener noreferrer">
