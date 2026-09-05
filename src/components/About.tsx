@@ -9,6 +9,8 @@ export function About() {
       <img
         src="/hero.webp"
         alt="Sam Archie"
+        fetchPriority="high"
+        decoding="async"
         className="h-90 aspect-[5/4] rounded-[3.5rem] object-cover sm:h-160"
       />
       <div className="space-y-4">
