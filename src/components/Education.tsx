@@ -7,7 +7,10 @@ const DEGREES = [
     period: "Jul 2021 – Dec 2022",
     points: [
       "Thesis: Guiding sustainable long-term future growth of New Zealand cities using multi-objective spatial optimisation.",
-      "Developed and benchmarked computational optimisation algorithms (weighted sum and NSGA-II genetic algorithm) for large-scale geospatial decision-making.",
+      "Built weighted sum and NSGA-II models in Python to rank 10-hectare cells for new housing against hazard, cost and amenity-access objectives. The weighted sum model beat NSGA-II in all four weighting scenarios.",
+      "Applied them to Greater Christchurch (5,415 homes facing coastal insurance withdrawal) and Invercargill, co-developed with Invercargill City Council.",
+      "Found that hazard-only plans pushed housing away from services, which increases car dependence and can raise emissions.",
+      "Francis Small Postgraduate Scholarship and an HJ Hopkins Trust scholarship."
     ],
     thesisUrl: "http://dx.doi.org/10.26021/14341",
   },
@@ -16,7 +19,7 @@ const DEGREES = [
     period: "Feb 2017 – Nov 2020",
     points: [
       "GPA 7.9/9.",
-      "Honours research project applying data-driven computational methods to urban planning through a systems engineering approach.",
+      "Honours research project applying data-driven computational methods to urban planning using a systems engineering approach.",
     ],
   },
 ];

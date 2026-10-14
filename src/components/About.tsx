@@ -18,7 +18,7 @@ export function About() {
           Kia ora, I'm Sam Archie.
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-neutral-500">
-          I build software that helps people make smarter decisions and save time.
+          I build software that helps people make decisions about sustainability and risk.
         </p>
       </div>
       <div className="flex items-center gap-3">
@@ -39,15 +39,21 @@ export function About() {
         </Button>
       </div>
       <div className="space-y-6 pt-8 text-left text-xl leading-relaxed text-neutral-700 sm:text-2xl">
-        <p>
-          Hi, I'm Sam, and I like building things to make life easier. I'm a backend software engineer with expertise in data, Python and APIs. I like working on problems where large-scale data analysis needs to turn into clean, scalable code.
-        </p>
-        <p>
-          Currently, I'm a Software Engineer at <a href="https://resilience-explorer.com/urban-intelligence/team" target="_blank" rel="noopener noreferrer">Urban Intelligence</a>, where I work on our internal platforms and our external products, like <a href="https://resilience-explorer.com" target="_blank" rel="noopener noreferrer">Resilience Explorer</a>. I lead technical design across our engineering platform, from the plugin architecture that lets us extend our data pipelines without touching core code, to the testing and code-quality standards the team now works to.
-        </p>
-        <p>
-          In my spare time, you can usually find me tramping, doing arts and crafts, DIY, travelling, tinkering with tech, cooking or reading.
-        </p>
+      <p>
+        Hi, I'm Sam. I'm a backend software engineer working with data, Python and APIs. I like building things that help people plan sustainably for climate change and natural hazards, including where and how to build.
+      </p>      
+      <p>
+        I'm a Software Engineer at <a href="https://resilience-explorer.com/urban-intelligence/team" target="_blank" rel="noopener noreferrer">Urban Intelligence</a>, where I work on our internal platforms and our external products, like the <a href="https://resilience-explorer.com" target="_blank" rel="noopener noreferrer">Resilience Explorer</a>. 
+      </p>
+      <p>
+        These days I lead technical design across our engineering platform, from the plugin architecture that lets us extend data pipelines without touching core code, to the testing and code-quality standards the team works to.
+      </p>
+      <p>
+        My master's research used optimisation to work out where new housing should go when coastal homes have to retreat from flooding. It was <a href="https://doi.org/10.1016/j.envsci.2024.103960" target="_blank" rel="noopener noreferrer">published in Environmental Science and Policy</a>.
+      </p>
+      <p>
+        In my spare time, you can usually find me tramping, doing arts and crafts, DIY, travelling, tinkering with tech, cooking or reading.
+      </p>
       </div>
     </section>
   );
