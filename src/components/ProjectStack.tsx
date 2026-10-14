@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState, type Ref } from "react";
 import { Button } from "@/components/ui/button";
 
 import projectsData from "@/data/projects.json";
@@ -130,18 +130,21 @@ function ProjectCard({
   progress,
   range,
   targetScale,
+  cardRef,
 }: {
   i: number;
   project: Project;
   progress: MotionValue<number>;
   range: [number, number];
   targetScale: number;
+  cardRef?: Ref<HTMLDivElement>;
 }) {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
     <div className="sticky top-0 flex h-[100vh] items-start justify-center px-4 pt-30 [@media(max-height:500px)]:pt-14">
       <motion.div
+        ref={cardRef}
         style={{
           scale,
           top: `calc(-5vh + ${i * 20}px)`,
@@ -177,15 +180,45 @@ function PlainProjectCard({ project }: { project: Project }) {
 
 export function ProjectStack() {
   const container = useRef<HTMLDivElement>(null);
+  const lastCardRef = useRef<HTMLDivElement>(null);
+  const [trailingSpace, setTrailingSpace] = useState(0);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
+  // The last card's content is allowed to be taller than 100vh (wide, bold
+  // images). Every other card's sticky box must stay exactly 100vh or the
+  // scroll-fraction-based scale animation desyncs, so instead of growing the
+  // last card's own box, we reserve the overflow as trailing space *outside*
+  // the scroll-tracked container, which the animation never measures.
+  useEffect(() => {
+    const card = lastCardRef.current;
+    if (!card) return;
+
+    function measure() {
+      if (!card) return;
+      // Card bottom sits roughly (pt-30 top padding + its "-5vh + i*20px"
+      // stagger offset) below the sticky box's top; pad generously rather
+      // than compute it exactly, since this only needs to be "enough."
+      const overflow = card.offsetHeight - window.innerHeight;
+      setTrailingSpace(overflow > 0 ? overflow + 220 : 0);
+    }
+
+    measure();
+    window.addEventListener("resize", measure);
+    // Re-measure once the (lazy-loaded) image inside actually sizes the card.
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(card);
+    return () => {
+      window.removeEventListener("resize", measure);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
     <section
       id="projects"
-      ref={container}
       className="relative flex w-full flex-col items-center pb-24 sm:pb-32"
     >
       <h2 className="mx-auto max-w-3xl px-6 pt-24 text-3xl font-medium tracking-tight text-neutral-900 sm:pt-32 sm:text-4xl">
@@ -196,9 +229,10 @@ export function ProjectStack() {
           <PlainProjectCard key={project.title} project={project} />
         ))}
       </div>
-      <div className="hidden w-full flex-col items-center min-[450px]:motion-safe:flex">
+      <div ref={container} className="hidden w-full flex-col items-center min-[450px]:motion-safe:flex">
         {projects.map((project, i) => {
           const targetScale = 1 - (projects.length - i - 1) * 0.08;
+          const isLast = i === projects.length - 1;
           return (
             <ProjectCard
               key={project.title}
@@ -207,10 +241,12 @@ export function ProjectStack() {
               progress={scrollYProgress}
               range={[i / projects.length, Math.min((i + 1.5) / projects.length, 1)]}
               targetScale={targetScale}
+              cardRef={isLast ? lastCardRef : undefined}
             />
           );
         })}
       </div>
+      <div aria-hidden style={{ height: trailingSpace }} className="min-[450px]:motion-safe:block hidden" />
     </section>
   );
 }
